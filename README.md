@@ -7,26 +7,26 @@ This repository is designed to assist you in setting up a new Mac environment, o
 Before proceeding, ensure that Homebrew is installed on your system. If not, open Terminal and execute the following command:
 
 ```sh
-$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
 Clone this repository to your local machine:
 
 ```sh
-$ git clone https://github.com/yourusername/yourrepository.git
+git clone git clone https://github.com/cmparrela/dotfiles.git .dotfiles
 ```
 
 Navigate to the install directory:
 ```sh
-$ cd yourrepository/install
+cd .dotfiles
 ```
 
 Make the installation script executable:
 ```sh
-$ chmod +x install.sh
+chmod +x install.sh
 ```
 
 Run the installation script:
 ```sh
-$ ./install.sh
+./install.sh
 ```
