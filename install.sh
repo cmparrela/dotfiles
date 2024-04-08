@@ -67,9 +67,13 @@ write "🚀 Starting to set up your Mac..."
 # List of apps to install
 apps_cast=(
   raycast
+  whatsapp
   notion
+  google-chrome
   docker
   microsoft-excel
+  visual-studio-code
+  arc
   todoist
 )
 
@@ -80,7 +84,6 @@ apps=(
     curl
     asdf
 )
-
 # Display all apps with their installation status
 display_apps "${apps_cast[@]}"
 display_apps "${apps[@]}"
