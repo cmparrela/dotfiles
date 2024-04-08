@@ -1,0 +1,21 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Cristopher Parrela
+	email = cmparrela@gmail.com
+
+[alias]
+	co = checkout
+	cob = checkout -b
+	st = status -sb
+	cm = commit
+	lg = log --all --graph --decorate --oneline --abbrev-commit
+	trigger = "!git commit --allow-empty -m 'ci: trigger ci'; git push"
+	ctest = "!git commit -am 'test: adiciona teste'; git push"
+	undo = reset --soft HEAD~
+	amend = commit -a --amend
+
+[push]
+	autoSetupRemote = true
+
+[init]
+	defaultBranch = main
