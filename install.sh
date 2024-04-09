@@ -75,6 +75,9 @@ apps_cast=(
   visual-studio-code
   arc
   todoist
+  shottr
+  insomnia
+  mongodb-compass
 )
 
 apps=(
