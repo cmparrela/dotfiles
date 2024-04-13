@@ -1,4 +1,4 @@
-# macOS Configuration 
+# Configuration 
 
 This repository is designed to assist you in setting up a new Mac environment, offering an automated method to install commonly used applications, developer tools, and configure shell environments with dotfiles.
 
