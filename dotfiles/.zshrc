@@ -27,25 +27,20 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting asdf)
 
 # User configuration
 
-# ALIAS
+# Alias
 alias vrc="code ~/.zshrc"
 alias reloadrc="source ~/.zshrc"
 alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}"' # listagem simples dos containers que estão sendo executados
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
 
 #ASDF
 # . /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+#pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# Created by `pipx`
+export PATH="$PATH:/Users/cristopherparrela/.local/bin"
+
