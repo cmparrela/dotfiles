@@ -78,6 +78,9 @@ apps_cast=(
   shottr
   insomnia
   mongodb-compass
+  spotify
+  warp
+  betterdisplay
 )
 
 apps=(
