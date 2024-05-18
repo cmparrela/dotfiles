@@ -77,6 +77,7 @@ apps_cast=(
   todoist
   shottr
   insomnia
+  postman
   mongodb-compass
   spotify
   warp
