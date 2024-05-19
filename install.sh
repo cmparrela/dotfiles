@@ -85,6 +85,7 @@ apps_cast=(
 )
 
 apps=(
+    dbeaver-community 
     python3
     pnpm
     coreutils
