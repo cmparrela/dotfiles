@@ -66,3 +66,34 @@ install_font() {
         brew install "$font"
     fi
 }
+
+create_symlinks() {
+    write "🔄 creating symlinks for dotfiles"
+
+    # Enable hidden files expansion in Zsh
+    shopt -s dotglob
+
+    # Ensure ZSH_CUSTOM is set
+    ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
+
+    # Dependencies of symlinks
+    if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
+        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
+    fi
+
+    if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
+        git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
+    fi
+
+    if [ ! -d "$HOME/.fzf" ]; then
+        git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
+        "$HOME/.fzf/install" --all
+    fi
+
+    # Create symlinks for dotfiles
+    for file in ./dotfiles/*; do
+        filename=$(basename "$file")
+        ln -sf "$(realpath "$file")" "$HOME/$filename"
+        write "✅ created symlink $file..."
+    done
+}

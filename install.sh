@@ -45,18 +45,7 @@ if confirm "Do you want to install fira code font??"; then
 fi
 
 if confirm "Do you want to create symlinks for dotfiles?"; then
-    write "🔄 creating symlinks for dotfiles"
-
-    # Enable hidden files expansion in Zsh
-    shopt -s dotglob
-
-    # Create symlinks for dotfiles
-    for file in ./dotfiles/*; do
-        filename=$(basename "$file")
-        ln -sf "$(realpath "$file")" "$HOME/$filename"
-        write "✅ created symlink $file..."
-    done
-
+    create_symlinks
 fi
 
 write "🚀 setup completed!"
