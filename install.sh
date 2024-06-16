@@ -44,6 +44,10 @@ if confirm "Do you want to install fira code font??"; then
     install_font
 fi
 
+if confirm "Do you want to install terraform??"; then
+    install_terraform
+fi
+
 if confirm "Do you want to create symlinks for dotfiles?"; then
     create_symlinks
 fi

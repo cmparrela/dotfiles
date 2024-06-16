@@ -56,15 +56,30 @@ install_apps() {
 
 install_font() {
     local tap="homebrew/cask-fonts"
-    local font="font-fira-code"
+    local app="font-fira-code"
 
     if ! brew tap | grep -q "^${tap}\$"; then
         brew tap "$tap"
     fi
 
     if ! brew list "$app" &>/dev/null; then
-        brew install "$font"
+        brew install "$app"
     fi
+}
+
+install_terraform() {
+    local tap="hashicorp/tap"
+    local app="hashicorp/tap/terraform"
+
+    if ! brew tap | grep -q "^${tap}\$"; then
+        brew tap "$tap"
+    fi
+
+    if ! brew list "$app" &>/dev/null; then
+        brew install "$app"
+    fi
+
+    # terraform -install-autocomplete -> already in .zshrc
 }
 
 create_symlinks() {
