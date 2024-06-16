@@ -4,12 +4,6 @@ This repository is designed to assist you in setting up a new Mac environment, o
 
 ## Installation
 
-Before proceeding, ensure that Homebrew is installed on your system. If not, open Terminal and execute the following command:
-
-```sh
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
 Clone this repository to your local machine:
 
 ```sh
