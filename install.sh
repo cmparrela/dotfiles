@@ -5,25 +5,30 @@ source ./functions.sh
 
 # List of apps to install
 apps=(
-  raycast
-  whatsapp
-  notion
-  google-chrome
-  docker
-  microsoft-excel
-  visual-studio-code
-  arc
-  todoist
-  shottr
-  insomnia
-  postman
-  mongodb-compass
-  spotify
-  warp
-  betterdisplay
-  aldente
-  kubectl
-  lens
+	raycast
+	whatsapp
+	notion
+	google-chrome
+	docker
+	microsoft-excel
+	visual-studio-code
+	arc
+	todoist
+	shottr
+	postman
+	mongodb-compass
+	spotify
+	warp
+	betterdisplay
+	aldente
+	kubectl
+	lens
+	pyenv
+	zsh
+	1password
+	coreutils # Dependencies for asdf
+	curl      # Dependencies for asdf
+	asdf
 )
 
 write "🚀 starting to set up your mac"
@@ -37,19 +42,19 @@ display_apps "${apps[@]}"
 
 # Confirmation of installation
 if confirm "Do you want to install all these apps?"; then
-    install_apps "${apps[@]}"
+	install_apps "${apps[@]}"
 fi
 
 if confirm "Do you want to install fira code font??"; then
-    install_font
+	install_font
 fi
 
 if confirm "Do you want to install terraform??"; then
-    install_terraform
+	install_terraform
 fi
 
 if confirm "Do you want to create symlinks for dotfiles?"; then
-    create_symlinks
+	create_symlinks
 fi
 
 write "🚀 setup completed!"
