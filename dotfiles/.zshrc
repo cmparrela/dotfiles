@@ -18,6 +18,7 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting asdf)
 
 # Alias
 alias vrc="code ~/.zshrc"
+alias vrcp="code ~/.zshrc-private"
 alias reloadrc="source ~/.zshrc"
 alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}"'
 
@@ -40,3 +41,4 @@ if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-clou
 # Terraform autocomplete
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
+
