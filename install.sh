@@ -24,6 +24,8 @@ apps=(
   aldente
   kubectl
   lens
+  1password
+  appcleaner
 )
 
 write "🚀 starting to set up your mac"
