@@ -24,25 +24,6 @@ alias k=kubectl
 alias set-k8s-dev="kubectl config use-context dev"
 alias set-k8s-prod="kubectl config use-context prod"
 
-# Moved to private zshrc
-# # pyenv
-# export PYENV_ROOT="$HOME/.pyenv"
-# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init -)"
-
-
-# # Created by `pipx`
-# export PATH="$PATH:$HOME/.local/bin"
-
-# # Created by `gcp`
-# export PATH="$PATH:~/Downloads/google-cloud-sdk/bin/gcloud init"
-# if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
-# if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
-# # Terraform autocomplete
-# autoload -U +X bashcompinit && bashcompinit
-# complete -o nospace -C /opt/homebrew/bin/terraform terraform
-
-
 # Plugin fzf necessary to work command + r
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -59,4 +40,5 @@ export PATH="$GOPATH/bin:$PATH"
 #JDK
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
-
+# Postgres
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"

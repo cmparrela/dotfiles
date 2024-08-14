@@ -9,7 +9,7 @@ apps=(
 	whatsapp
 	notion
 	google-chrome
-	docker
+	# docker Removed to install manually cast version
 	microsoft-excel
 	visual-studio-code
 	arc
@@ -30,6 +30,8 @@ apps=(
 	curl      # Dependencies for asdf
 	asdf
 	appcleaner
+	openjdk
+	rectangle
 )
 
 write "🚀 starting to set up your mac"
