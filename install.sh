@@ -29,6 +29,7 @@ apps=(
 	coreutils # Dependencies for asdf
 	curl      # Dependencies for asdf
 	asdf
+	appcleaner
 )
 
 write "🚀 starting to set up your mac"
