@@ -1,0 +1,26 @@
+# Alias
+alias vrc="code ~/.zshrc"
+alias vrcp="code ~/.zshrc-private"
+alias vrcf="code ~/.zshrc-function"
+alias reloadrc="source ~/.zshrc"
+alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}"'
+alias k=kubectl
+alias kcn='kubectl config set-context --current --namespace'
+alias kns='kubectl config view --minify --output "jsonpath={..namespace}"'kubectl describe namespace	
+alias kgp="kubectl get pods"
+alias kgpw="kgp --watch"
+alias set-k8s-dev="kubectl config use-context dev"
+alias set-k8s-prod="kubectl config use-context prod"
+
+# Kubernetes functions
+function kalias() {
+    echo "kcn -> Change current namespace"
+    echo "kns -> Show current namespace"
+    echo "kgp -> List all pods"
+    echo "kgpw -> List all pods and watch"
+}
+
+# Show all import cycle in go project
+function import-cycle() {
+    go list -json ./... | grep -A 10 '"ImportPath":' | grep -B 10 '"Deps":' | grep package
+}

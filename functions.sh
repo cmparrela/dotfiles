@@ -67,21 +67,6 @@ install_font() {
 	fi
 }
 
-install_terraform() {
-	local tap="hashicorp/tap"
-	local app="hashicorp/tap/terraform"
-
-	if ! brew tap | grep -q "^${tap}\$"; then
-		brew tap "$tap"
-	fi
-
-	if ! brew list "$app" &>/dev/null; then
-		brew install "$app"
-	fi
-
-	# terraform -install-autocomplete -> already in .zshrc
-}
-
 create_symlinks() {
 	write "🔄 creating symlinks for dotfiles"
 
@@ -89,25 +74,18 @@ create_symlinks() {
 	shopt -s dotglob
 
 	touch ~/.zshrc-private
-
-	# # Ensure ZSH_CUSTOM is set
-	# ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
-
-	# # # Dependencies of symlinks
-	# # if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
-	# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
-	# # fi
-
-	# # if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
-	# git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
-	# # fi
-
-	# # if [ ! -d "$HOME/.fzf" ]; then
-	# git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
-	#     "$HOME/.fzf/install" --all
-	# fi
+	touch ~/.zshrc-function
 
 	install_zsh
+
+	# Add source lines to ~/.zshrc if not already present
+	if ! grep -q "source \$HOME/.zshrc-private" "$HOME/.zshrc"; then
+		echo '\nsource $HOME/.zshrc-private' >> "$HOME/.zshrc"
+	fi
+
+	if ! grep -q "source \$HOME/.zshrc-function" "$HOME/.zshrc"; then
+		echo '\nsource $HOME/.zshrc-function' >> "$HOME/.zshrc"
+	fi
 
 	# Create symlinks for dotfiles
 	for file in ./dotfiles/*; do
@@ -115,27 +93,4 @@ create_symlinks() {
 		ln -sf "$(realpath "$file")" "$HOME/$filename"
 		write "✅ created symlink $file..."
 	done
-}
-
-install_zsh() {
-	brew install zsh
-
-	curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
-
-	ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
-
-	# Dependencies of symlinks
-	if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
-		git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
-	fi
-
-	if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
-		git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
-	fi
-
-	if [ ! -d "$HOME/.fzf" ]; then
-		git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
-		"$HOME/.fzf/install" --all
-	fi
-
 }
