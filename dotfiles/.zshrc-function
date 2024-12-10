@@ -12,6 +12,10 @@ alias kgpw="kgp --watch"
 alias set-k8s-dev="kubectl config use-context dev"
 alias set-k8s-prod="kubectl config use-context prod"
 
+function git-clean-branches() {
+    git fetch --prune && git branch -vv | grep 'gone]' | awk '{print ($1 == "*" ? $2 : $1)}' | xargs git branch -D
+}
+
 # Kubernetes functions
 function kalias() {
     echo "kcn -> Change current namespace"
